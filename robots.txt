@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luox07.github.io/LUOXSYSTEMS/sitemap.xml
+Sitemap: https://luoxsystems24hrs.netlify.app/sitemap.xml
