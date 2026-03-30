@@ -171,7 +171,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(calc(-50% + 30px), -50%);
+  transform: translate(calc(-50% + 38px), -50%);
   z-index: 2;
   width: min(100%, 440px);
   aspect-ratio: 1 / 1;
