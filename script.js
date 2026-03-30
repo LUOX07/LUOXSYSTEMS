@@ -114,18 +114,29 @@ if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
 }
 
 const form = document.querySelector('.contact-form');
+const formStatus = document.querySelector('.form-status');
+
+const showFormStatus = (message, type) => {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.classList.remove('success', 'error');
+  formStatus.classList.add(type, 'visible');
+};
+
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const nombre = formData.get('nombre')?.toString().trim() || '';
-  const email = formData.get('email')?.toString().trim() || '';
+  const contacto = formData.get('contacto')?.toString().trim() || '';
+  const asunto = formData.get('asunto')?.toString().trim() || 'Consulta desde la web';
   const mensaje = formData.get('mensaje')?.toString().trim() || '';
   const destinationEmail = form.dataset.email || 'roblesbarrios1416@gmail.com';
 
   const text = [
     'Hola, quiero informacion sobre un proyecto.',
     `Nombre: ${nombre}`,
-    `Email: ${email}`,
+    `Contacto: ${contacto}`,
+    `Asunto: ${asunto}`,
     `Mensaje: ${mensaje}`,
   ].join('\n');
 
@@ -138,17 +149,35 @@ form?.addEventListener('submit', (event) => {
     },
     body: JSON.stringify({
       name: nombre,
-      email,
-      message: mensaje,
-      _subject: `Nuevo contacto web - ${nombre || 'Sin nombre'}`,
+      email: destinationEmail,
+      message: `Contacto: ${contacto}\nAsunto: ${asunto}\nMensaje: ${mensaje}`,
+      _subject: `Nuevo contacto web - ${asunto}`,
     }),
-  }).catch(() => {
-    // If email service fails, WhatsApp flow still works.
-  });
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Email submit failed');
+      }
+      showFormStatus('Mensaje enviado por correo correctamente.', 'success');
+    })
+    .catch(() => {
+      showFormStatus('No se pudo enviar al correo, pero WhatsApp sigue disponible.', 'error');
+      // If email service fails, WhatsApp flow still works.
+    })
+    .finally(() => {
+      setTimeout(() => {
+        if (!formStatus) return;
+        formStatus.classList.remove('visible');
+      }, 4200);
+    });
 
-  const whatsappUrl = `https://wa.me/595982912585?text=${encodeURIComponent(text)}`;
-  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  try {
+    const whatsappUrl = `https://wa.me/595982912585?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    showFormStatus('Mensaje listo: se abrio WhatsApp y se envio copia al correo.', 'success');
+  } catch {
+    showFormStatus('No se pudo abrir WhatsApp automaticamente.', 'error');
+  }
 
-  alert('Te redirigimos a WhatsApp y enviamos una copia al correo.');
   form.reset();
 });

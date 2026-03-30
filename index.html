@@ -260,35 +260,65 @@
       </section>
 
       <section id="contacto" class="section reveal">
-        <h2>Contacto</h2>
-        <p>
-          Si queres una web profesional, una tienda virtual o mejorar la seguridad de tu entorno IT,
-          escribime y armamos una solucion a medida.
-        </p>
-        <p class="contact-destination">
-          Los mensajes llegan a tu WhatsApp y tambien a tu correo: roblesbarrios1416@gmail.com.
-        </p>
+        <div class="contact-layout">
+          <article class="contact-left">
+            <h2>!Hablemos de tu proximo proyecto!</h2>
+            <p>
+              Estoy disponible para proyectos freelance, colaboraciones o
+              posiciones full-time. Ya sea una tienda online, un sistema web,
+              infraestructura IT o consultoria en ciberseguridad, estoy listo
+              para ayudarte.
+            </p>
 
-        <div class="contact-quick">
-          <a class="btn btn-whatsapp" href="https://wa.me/595982912585" target="_blank" rel="noopener noreferrer">Escribirme por WhatsApp</a>
-          <a class="btn btn-ghost" href="tel:+595982912585">Llamar: +595982912585</a>
+            <div class="contact-point">
+              <span class="point-icon">[WEB]</span>
+              <div>
+                <p class="point-label">Proyecto destacado</p>
+                <p class="point-value">lakajuar-webpage.pages.dev</p>
+              </div>
+            </div>
+
+            <div class="contact-point">
+              <span class="point-icon">[BRAND]</span>
+              <div>
+                <p class="point-label">Marca</p>
+                <p class="point-value">LUOXSYSTEMS</p>
+              </div>
+            </div>
+
+            <div class="contact-point">
+              <span class="point-icon">[OK]</span>
+              <div>
+                <p class="point-label">Estado</p>
+                <p class="point-value">Disponible para proyectos</p>
+              </div>
+            </div>
+          </article>
+
+          <form class="contact-form panel-contact" data-email="roblesbarrios1416@gmail.com">
+            <label>
+              Tu nombre
+              <input type="text" name="nombre" placeholder="ej. Juan Garcia" required />
+            </label>
+            <label>
+              Email o telefono
+              <input type="text" name="contacto" placeholder="tu@email.com o +595..." required />
+            </label>
+            <label>
+              Asunto
+              <input type="text" name="asunto" placeholder="En que puedo ayudarte?" required />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" rows="6" placeholder="Cuentame mas sobre tu proyecto..." required></textarea>
+            </label>
+            <button type="submit" class="btn btn-send">Enviar mensaje</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="contact-destination">
+              Se envia a WhatsApp (+595982912585) y al correo roblesbarrios1416@gmail.com.
+            </p>
+          </form>
         </div>
-
-        <form class="contact-form" data-email="roblesbarrios1416@gmail.com">
-          <label>
-            Nombre
-            <input type="text" name="nombre" placeholder="Tu nombre" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="tu@email.com" required />
-          </label>
-          <label>
-            Mensaje
-            <textarea name="mensaje" rows="5" placeholder="Contame tu proyecto" required></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
-        </form>
       </section>
     </main>
 
