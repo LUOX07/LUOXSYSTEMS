@@ -204,6 +204,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 38%;
 }
 
 .hero-core-label {
@@ -955,6 +956,14 @@ footer p {
 
   .hero-core {
     width: min(100%, 400px);
+  }
+
+  .hero-logo-frame {
+    width: min(92%, 340px);
+  }
+
+  .hero-logo-photo {
+    object-position: center 30%;
   }
 
   .orbit-ring-outer {
