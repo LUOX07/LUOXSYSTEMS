@@ -406,8 +406,8 @@ h2 {
 }
 
 .skill-card {
-  background: linear-gradient(165deg, rgba(13, 30, 54, 0.92), rgba(10, 22, 42, 0.96));
-  border: 1px solid rgba(88, 142, 228, 0.24);
+  background: linear-gradient(165deg, rgba(11, 34, 21, 0.94), rgba(6, 18, 12, 0.97));
+  border: 1px solid rgba(79, 164, 110, 0.28);
   border-radius: 18px;
   padding: 1.2rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -415,8 +415,8 @@ h2 {
 
 .skill-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(88, 189, 255, 0.6);
-  box-shadow: 0 14px 28px rgba(4, 20, 42, 0.5);
+  border-color: rgba(126, 248, 164, 0.62);
+  box-shadow: 0 14px 28px rgba(2, 16, 10, 0.45);
 }
 
 .skill-title-wrap {
@@ -437,9 +437,9 @@ h2 {
   min-width: 50px;
   height: 50px;
   border-radius: 12px;
-  border: 1px solid rgba(104, 170, 255, 0.3);
-  background: linear-gradient(145deg, rgba(0, 180, 255, 0.16), rgba(100, 45, 255, 0.16));
-  color: #87d7ff;
+  border: 1px solid rgba(94, 192, 131, 0.34);
+  background: linear-gradient(145deg, rgba(31, 159, 88, 0.18), rgba(10, 74, 37, 0.3));
+  color: #84f5b0;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
   font-weight: 700;
@@ -452,9 +452,9 @@ h2 {
 }
 
 .skill-tags span {
-  border: 1px solid rgba(80, 138, 219, 0.34);
-  background: rgba(29, 49, 81, 0.65);
-  color: #d4e8ff;
+  border: 1px solid rgba(83, 165, 115, 0.34);
+  background: rgba(14, 40, 24, 0.72);
+  color: #d8f6e4;
   border-radius: 9px;
   padding: 0.42rem 0.72rem;
   font-family: "JetBrains Mono", monospace;
