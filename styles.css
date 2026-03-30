@@ -160,6 +160,7 @@ body {
   position: relative;
   width: min(100%, 540px);
   aspect-ratio: 1 / 1;
+  margin-inline: auto;
   --orbit-r1: 248px;
   --orbit-r2: 244px;
   --orbit-r3: 238px;
@@ -167,7 +168,7 @@ body {
 }
 
 .hero-core {
-  position: relative;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
