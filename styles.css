@@ -54,20 +54,6 @@ body {
   background-size: 3px 3px;
 }
 
-.cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(76, 255, 135, 0.2), rgba(76, 255, 135, 0));
-  filter: blur(6px);
-  transform: translate(-50%, -50%);
-  z-index: -2;
-}
-
 .topbar {
   position: sticky;
   top: 0;
@@ -75,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 1.2rem 1.8rem;
   border-bottom: 1px solid rgba(76, 255, 135, 0.18);
   background: rgba(2, 12, 8, 0.8);
   backdrop-filter: blur(6px);
@@ -85,21 +71,23 @@ body {
 .logo {
   color: var(--accent);
   text-decoration: none;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   font-weight: 700;
+  font-size: 1.2rem;
   font-family: "JetBrains Mono", monospace;
   text-shadow: 0 0 10px rgba(76, 255, 135, 0.35);
 }
 
 .nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1.08rem;
+  font-weight: 500;
 }
 
 .nav a:hover {
@@ -123,7 +111,7 @@ body {
 }
 
 .hero {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 90px);
   display: grid;
   align-content: center;
   gap: 1.3rem;
@@ -498,11 +486,11 @@ footer {
   .nav {
     position: absolute;
     right: 1rem;
-    top: 62px;
+    top: 74px;
     display: none;
     flex-direction: column;
-    min-width: 190px;
-    padding: 0.75rem;
+    min-width: 220px;
+    padding: 0.9rem;
     border: 1px solid var(--line);
     border-radius: 10px;
     background: rgba(3, 13, 8, 0.97);
@@ -516,7 +504,7 @@ footer {
     padding: 3rem 0;
   }
 
-  .cursor-glow {
-    display: none;
+  .logo {
+    font-size: 1rem;
   }
 }

@@ -1,6 +1,5 @@
 const menuButton = document.querySelector('.menu-btn');
 const nav = document.querySelector('.nav');
-const cursorGlow = document.querySelector('.cursor-glow');
 const counters = document.querySelectorAll('[data-counter]');
 
 menuButton?.addEventListener('click', () => {
@@ -56,22 +55,6 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal, .hero').forEach((section) => observer.observe(section));
-
-document.addEventListener('pointermove', (event) => {
-  if (!cursorGlow) return;
-
-  cursorGlow.animate(
-    {
-      left: `${event.clientX}px`,
-      top: `${event.clientY}px`,
-    },
-    {
-      duration: 220,
-      fill: 'forwards',
-      easing: 'ease-out',
-    }
-  );
-});
 
 const matrixCanvas = document.querySelector('.matrix-bg');
 const context = matrixCanvas?.getContext('2d');
