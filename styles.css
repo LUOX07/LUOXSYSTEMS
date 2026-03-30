@@ -152,7 +152,7 @@ body {
   z-index: 2;
   width: min(100%, 440px);
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  border-radius: 42px;
   display: grid;
   place-items: center;
   background: radial-gradient(circle at center, rgba(10, 24, 16, 0.98), rgba(4, 12, 8, 0.92));
@@ -166,7 +166,7 @@ body {
 .hero-core::after {
   content: "";
   position: absolute;
-  border-radius: 50%;
+  border-radius: 36px;
   inset: 16px;
   border: 1px solid rgba(76, 255, 135, 0.14);
 }
@@ -175,6 +175,7 @@ body {
   inset: -28px;
   border-style: dashed;
   border-color: rgba(83, 246, 255, 0.12);
+  border-radius: 52px;
 }
 
 .hero-logo {
@@ -182,9 +183,32 @@ body {
   filter: drop-shadow(0 0 34px rgba(76, 255, 135, 0.18));
 }
 
+.hero-logo-frame {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 380px);
+  aspect-ratio: 1 / 1;
+  border-radius: 26px;
+  border: 1px solid rgba(76, 255, 135, 0.28);
+  background: linear-gradient(160deg, rgba(3, 15, 9, 0.94), rgba(5, 22, 13, 0.92));
+  box-shadow:
+    0 0 0 1px rgba(76, 255, 135, 0.08) inset,
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    0 0 26px rgba(76, 255, 135, 0.15);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.hero-logo-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero-core-label {
   position: absolute;
-  bottom: 58px;
+  bottom: 18px;
   margin: 0;
   padding: 0.55rem 1rem;
   border-radius: 999px;
@@ -927,6 +951,10 @@ footer p {
   .hero-visual {
     min-height: 500px;
     order: -1;
+  }
+
+  .hero-core {
+    width: min(100%, 400px);
   }
 
   .orbit-ring-outer {
