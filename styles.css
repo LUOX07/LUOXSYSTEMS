@@ -267,14 +267,14 @@ body {
   height: 96%;
   border-style: dashed;
   border-color: rgba(83, 246, 255, 0.16);
-  animation: ring-spin calc(24s * var(--orbit-speed-mult)) linear infinite;
+  animation: ring-spin calc(46s * var(--orbit-speed-mult)) linear infinite;
 }
 
 .orbit-ring-inner {
   width: 78%;
   height: 78%;
   box-shadow: 0 0 30px rgba(76, 255, 135, 0.08);
-  animation: ring-spin-reverse calc(28s * var(--orbit-speed-mult)) linear infinite;
+  animation: ring-spin-reverse calc(54s * var(--orbit-speed-mult)) linear infinite;
 }
 
 .hero-badge {
@@ -287,7 +287,7 @@ body {
   border-radius: 16px;
   border: 1px solid rgba(76, 255, 135, 0.2);
   background: rgba(8, 24, 16, 0.92);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
   color: #d9fff0;
   font-weight: 600;
 }
@@ -299,11 +299,11 @@ body {
 }
 
 .orbit-1 {
-  animation: orbit-1 calc(12s * var(--orbit-speed-mult)) linear infinite;
+  animation: orbit-1 calc(34s * var(--orbit-speed-mult)) linear infinite;
 }
 
 .orbit-2 {
-  animation: orbit-2 calc(14s * var(--orbit-speed-mult)) linear infinite;
+  animation: orbit-2 calc(38s * var(--orbit-speed-mult)) linear infinite;
 }
 
 .orbit-3 {
@@ -311,7 +311,7 @@ body {
 }
 
 .orbit-4 {
-  animation: orbit-4 calc(16s * var(--orbit-speed-mult)) linear infinite;
+  animation: orbit-4 calc(42s * var(--orbit-speed-mult)) linear infinite;
 }
 
 .hero-badge svg,
@@ -336,7 +336,7 @@ body {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   background: rgba(18, 168, 79, 0.12);
-  animation: chip-flicker 3.6s linear infinite;
+  animation: chip-flicker 9s linear infinite;
 }
 
 h1,
@@ -566,6 +566,44 @@ h2 {
   line-height: 1.72;
 }
 
+.trust-grid,
+.process-grid {
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.trust-card,
+.process-step {
+  background: linear-gradient(160deg, rgba(12, 44, 27, 0.9), rgba(7, 23, 15, 0.95));
+  border: 1px solid rgba(90, 179, 121, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trust-card:hover,
+.process-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(126, 248, 164, 0.65);
+  box-shadow: var(--shadow-soft);
+}
+
+.trust-card h3,
+.process-step h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 0.7rem;
+}
+
+.process-number {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
 .tag {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.8rem;
@@ -722,6 +760,22 @@ h2 {
   max-width: 620px;
 }
 
+.business-data {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0 1.1rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(83, 165, 115, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(8, 25, 16, 0.62);
+}
+
+.business-data p {
+  margin: 0;
+  color: #cfeedd;
+  font-size: 0.96rem;
+}
+
 .contact-point {
   margin-top: 1rem;
   display: flex;
@@ -804,7 +858,7 @@ h2 {
   min-height: 1.3rem;
   margin: 0.15rem 0 0;
   font-size: 0.94rem;
-  color: #9ed4ff;
+  color: #a6efc5;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -871,6 +925,8 @@ footer p {
 
 .reveal.visible .card,
 .reveal.visible .project,
+.reveal.visible .trust-card,
+.reveal.visible .process-step,
 .reveal.visible .skill-card,
 .reveal.visible .about-tags span,
 .reveal.visible .contact-point,
@@ -880,6 +936,8 @@ footer p {
 
 .reveal.visible .card:nth-child(2),
 .reveal.visible .project:nth-child(2),
+.reveal.visible .trust-card:nth-child(2n),
+.reveal.visible .process-step:nth-child(2n),
 .reveal.visible .skill-card:nth-child(2n),
 .reveal.visible .about-tags span:nth-child(2n) {
   animation-delay: 0.08s;
@@ -887,12 +945,16 @@ footer p {
 
 .reveal.visible .card:nth-child(3),
 .reveal.visible .project:nth-child(3),
+.reveal.visible .trust-card:nth-child(3n),
+.reveal.visible .process-step:nth-child(3n),
 .reveal.visible .skill-card:nth-child(3n),
 .reveal.visible .about-tags span:nth-child(3n) {
   animation-delay: 0.14s;
 }
 
 .reveal.visible .card:nth-child(4),
+.reveal.visible .trust-card:nth-child(4n),
+.reveal.visible .process-step:nth-child(4n),
 .reveal.visible .skill-card:nth-child(4n),
 .reveal.visible .about-tags span:nth-child(4n) {
   animation-delay: 0.2s;

@@ -1,41 +1,6 @@
 const menuButton = document.querySelector('.menu-btn');
 const nav = document.querySelector('.nav');
 const counters = document.querySelectorAll('[data-counter]');
-const animToggle = document.querySelector('.anim-toggle');
-
-const animModes = ['slow', 'normal', 'fast'];
-const animLabels = {
-  slow: 'Velocidad: Lenta',
-  normal: 'Velocidad: Normal',
-  fast: 'Velocidad: Rapida',
-};
-
-const applyAnimMode = (mode) => {
-  const safeMode = animModes.includes(mode) ? mode : 'normal';
-
-  if (safeMode === 'normal') {
-    document.body.removeAttribute('data-anim-speed');
-  } else {
-    document.body.setAttribute('data-anim-speed', safeMode);
-  }
-
-  if (animToggle) {
-    animToggle.textContent = animLabels[safeMode];
-    animToggle.setAttribute('aria-pressed', String(safeMode !== 'normal'));
-  }
-
-  localStorage.setItem('luox_anim_mode', safeMode);
-};
-
-const savedAnimMode = localStorage.getItem('luox_anim_mode') || 'normal';
-applyAnimMode(savedAnimMode);
-
-animToggle?.addEventListener('click', () => {
-  const currentMode = (document.body.getAttribute('data-anim-speed') || 'normal');
-  const currentIndex = animModes.indexOf(currentMode);
-  const nextMode = animModes[(currentIndex + 1) % animModes.length];
-  applyAnimMode(nextMode);
-});
 
 menuButton?.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
