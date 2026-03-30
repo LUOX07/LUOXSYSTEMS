@@ -331,6 +331,60 @@ h2 {
   text-decoration: underline;
 }
 
+.about-split {
+  margin: 1.4rem 0 1.6rem;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.3fr);
+  gap: 1rem;
+}
+
+.profile-card,
+.about-copy {
+  background: linear-gradient(160deg, rgba(8, 34, 22, 0.92), rgba(6, 20, 13, 0.95));
+  border: 1px solid rgba(83, 178, 118, 0.36);
+  border-radius: 16px;
+  padding: 1.1rem;
+}
+
+.profile-card h3,
+.about-copy h3 {
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.profile-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.62rem;
+  color: #c8ecd6;
+}
+
+.profile-card li {
+  line-height: 1.5;
+}
+
+.about-copy p {
+  margin: 0 0 0.9rem;
+  color: #c3e8d0;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-tags span {
+  border: 1px solid rgba(94, 192, 131, 0.45);
+  background: rgba(9, 29, 18, 0.78);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.4rem 0.78rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+}
+
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -506,5 +560,9 @@ footer {
 
   .logo {
     font-size: 1rem;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
   }
 }
