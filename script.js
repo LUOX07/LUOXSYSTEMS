@@ -120,6 +120,7 @@ form?.addEventListener('submit', (event) => {
   const nombre = formData.get('nombre')?.toString().trim() || '';
   const email = formData.get('email')?.toString().trim() || '';
   const mensaje = formData.get('mensaje')?.toString().trim() || '';
+  const destinationEmail = form.dataset.email || 'roblesbarrios1416@gmail.com';
 
   const text = [
     'Hola, quiero informacion sobre un proyecto.',
@@ -128,9 +129,26 @@ form?.addEventListener('submit', (event) => {
     `Mensaje: ${mensaje}`,
   ].join('\n');
 
+  // Sends a copy to email without requiring a backend server.
+  fetch(`https://formsubmit.co/ajax/${destinationEmail}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      name: nombre,
+      email,
+      message: mensaje,
+      _subject: `Nuevo contacto web - ${nombre || 'Sin nombre'}`,
+    }),
+  }).catch(() => {
+    // If email service fails, WhatsApp flow still works.
+  });
+
   const whatsappUrl = `https://wa.me/595982912585?text=${encodeURIComponent(text)}`;
   window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-  alert('Te redirigimos a WhatsApp para enviar tu mensaje.');
+  alert('Te redirigimos a WhatsApp y enviamos una copia al correo.');
   form.reset();
 });
