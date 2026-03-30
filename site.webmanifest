@@ -1,0 +1,17 @@
+{
+  "name": "LUOXSYSTEMS",
+  "short_name": "LUOX",
+  "description": "Desarrollo web, e-commerce, sistemas IT y ciberseguridad con enfoque profesional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05120b",
+  "theme_color": "#05120b",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 820" role="img" aria-labelledby="title desc">
+  <title id="title">LUOXSYSTEMS Brand Mark</title>
+  <desc id="desc">Neon green and cyan brand emblem for LUOXSYSTEMS with shield, orbital rings and text.</desc>
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="44%" r="58%">
+      <stop offset="0%" stop-color="#1cf0a0" stop-opacity="0.45"/>
+      <stop offset="55%" stop-color="#0b3b24" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8affc1"/>
+      <stop offset="48%" stop-color="#53f6ff"/>
+      <stop offset="100%" stop-color="#b8ff68"/>
+    </linearGradient>
+    <linearGradient id="textFill" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#d8fff0"/>
+      <stop offset="50%" stop-color="#6af7ff"/>
+      <stop offset="100%" stop-color="#b2ff71"/>
+    </linearGradient>
+    <filter id="neon" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="820" height="820" fill="#020805"/>
+  <circle cx="410" cy="360" r="270" fill="url(#bgGlow)"/>
+  <circle cx="410" cy="360" r="210" fill="none" stroke="#0f8f57" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="5 10"/>
+  <circle cx="410" cy="360" r="248" fill="none" stroke="#34dfff" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="6 12"/>
+
+  <path d="M410 110 610 186 610 400c0 124-78 221-200 275-122-54-200-151-200-275V186Z" fill="none" stroke="url(#shieldStroke)" stroke-width="10" filter="url(#neon)"/>
+  <path d="M410 140 585 205 585 392c0 108-67 192-175 242-108-50-175-134-175-242V205Z" fill="rgba(3,18,11,0.72)" stroke="#1ceaa1" stroke-opacity="0.5" stroke-width="2"/>
+
+  <circle cx="255" cy="260" r="16" fill="#38e7ff" filter="url(#neon)"/>
+  <circle cx="575" cy="515" r="16" fill="#88ff78" filter="url(#neon)"/>
+  <circle cx="310" cy="580" r="12" fill="#4cff87" filter="url(#neon)"/>
+
+  <g transform="translate(290 190)">
+    <path d="M150 48c52 0 93 35 107 87 8 29 5 60-10 87-17 32-48 57-85 68 23-25 29-57 20-84-11-34-39-49-76-71-17-11-28-21-33-43 22-27 47-44 77-44Z" fill="#050d08" stroke="#7affb7" stroke-width="5" filter="url(#neon)"/>
+    <path d="M178 142c31-3 59 11 78 34-20 15-46 21-74 17-21-3-40-12-54-26 15-13 31-22 50-25Z" fill="#08120b" stroke="#52dfff" stroke-width="4"/>
+    <circle cx="190" cy="100" r="12" fill="#d9ff73" filter="url(#neon)"/>
+  </g>
+
+  <g transform="translate(122 520)">
+    <path d="M38 16h500l60 54-60 56H38L0 70Z" fill="#0a130e" stroke="url(#shieldStroke)" stroke-width="6" filter="url(#neon)"/>
+    <text x="270" y="89" text-anchor="middle" font-size="96" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" fill="url(#textFill)">LUOX</text>
+  </g>
+  <g transform="translate(218 648)">
+    <rect x="0" y="0" width="384" height="72" rx="16" fill="#0b1410" stroke="#4eff88" stroke-opacity="0.52" stroke-width="3"/>
+    <text x="192" y="48" text-anchor="middle" font-size="42" font-family="JetBrains Mono, monospace" font-weight="700" fill="#ddfff0">SYSTEMS</text>
+  </g>
+</svg>

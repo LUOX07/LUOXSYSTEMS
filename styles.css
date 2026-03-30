@@ -128,6 +128,134 @@ body {
   gap: 1.1rem;
 }
 
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.05rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 610px;
+  display: grid;
+  place-items: center;
+}
+
+.hero-core {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 440px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at center, rgba(10, 24, 16, 0.98), rgba(4, 12, 8, 0.92));
+  box-shadow:
+    0 0 0 1px rgba(76, 255, 135, 0.18),
+    0 0 40px rgba(76, 255, 135, 0.16),
+    inset 0 0 34px rgba(83, 246, 167, 0.1);
+}
+
+.hero-core::before,
+.hero-core::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 16px;
+  border: 1px solid rgba(76, 255, 135, 0.14);
+}
+
+.hero-core::after {
+  inset: -28px;
+  border-style: dashed;
+  border-color: rgba(83, 246, 255, 0.12);
+}
+
+.hero-logo {
+  width: min(90%, 420px);
+  filter: drop-shadow(0 0 34px rgba(76, 255, 135, 0.18));
+}
+
+.hero-core-label {
+  position: absolute;
+  bottom: 58px;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(76, 255, 135, 0.28);
+  background: rgba(7, 23, 15, 0.86);
+  color: #bfffd9;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.92rem;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(76, 255, 135, 0.14);
+}
+
+.orbit-ring-outer {
+  width: 520px;
+  height: 520px;
+  border-style: dashed;
+  border-color: rgba(83, 246, 255, 0.16);
+}
+
+.orbit-ring-inner {
+  width: 430px;
+  height: 430px;
+  box-shadow: 0 0 30px rgba(76, 255, 135, 0.08);
+}
+
+.hero-badge {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(76, 255, 135, 0.2);
+  background: rgba(8, 24, 16, 0.92);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+  color: #d9fff0;
+  font-weight: 600;
+}
+
+.hero-badge svg,
+.skill-icon svg,
+.point-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.badge-top-right {
+  top: 88px;
+  right: 10px;
+}
+
+.badge-right {
+  top: 278px;
+  right: -8px;
+}
+
+.badge-bottom-left {
+  bottom: 118px;
+  left: 6px;
+}
+
 .chip {
   display: inline-block;
   width: fit-content;
@@ -469,6 +597,8 @@ h2 {
   font-size: clamp(1.35rem, 2vw, 1.75rem);
   margin: 0;
   line-height: 1.15;
+  max-width: 10ch;
+  overflow-wrap: anywhere;
 }
 
 .skill-icon {
@@ -480,9 +610,6 @@ h2 {
   border: 1px solid rgba(94, 192, 131, 0.34);
   background: linear-gradient(145deg, rgba(31, 159, 88, 0.18), rgba(10, 74, 37, 0.3));
   color: #84f5b0;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.9rem;
-  font-weight: 700;
 }
 
 .skill-tags {
@@ -542,8 +669,6 @@ h2 {
   min-width: 54px;
   height: 54px;
   border-radius: 12px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.8rem;
   color: #8cf5b7;
   border: 1px solid rgba(94, 192, 131, 0.34);
   background: linear-gradient(145deg, rgba(31, 159, 88, 0.18), rgba(10, 74, 37, 0.3));
@@ -677,7 +802,9 @@ footer p {
 .reveal.visible .card,
 .reveal.visible .project,
 .reveal.visible .skill-card,
-.reveal.visible .about-tags span {
+.reveal.visible .about-tags span,
+.reveal.visible .contact-point,
+.reveal.visible .hero-badge {
   animation: rise-in 0.45s ease both;
 }
 
@@ -791,6 +918,45 @@ footer p {
 
   .contact-layout {
     grid-template-columns: 1fr;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+    order: -1;
+  }
+
+  .orbit-ring-outer {
+    width: min(92vw, 460px);
+    height: min(92vw, 460px);
+  }
+
+  .orbit-ring-inner {
+    width: min(76vw, 370px);
+    height: min(76vw, 370px);
+  }
+
+  .hero-badge {
+    padding: 0.68rem 0.82rem;
+    font-size: 0.88rem;
+  }
+
+  .badge-top-right {
+    top: 48px;
+    right: 8px;
+  }
+
+  .badge-right {
+    top: 224px;
+    right: 0;
+  }
+
+  .badge-bottom-left {
+    bottom: 64px;
+    left: 4px;
   }
 
   .point-value {
