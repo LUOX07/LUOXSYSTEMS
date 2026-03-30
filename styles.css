@@ -158,6 +158,14 @@ h2 {
   font-size: 1.06rem;
 }
 
+.hero-subtitle {
+  margin: -0.4rem 0 0;
+  max-width: 740px;
+  color: #a9e5c1;
+  font-size: clamp(1.05rem, 2.3vw, 1.35rem);
+  font-weight: 600;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -248,6 +256,12 @@ h2 {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin: 0.6rem 0 1.1rem;
+}
+
+.contact-destination {
+  margin: 0.2rem 0 1rem;
+  color: #9dd8b4;
+  font-size: 0.95rem;
 }
 
 .terminal-card {

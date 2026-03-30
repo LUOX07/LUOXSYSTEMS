@@ -116,6 +116,21 @@ if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
 const form = document.querySelector('.contact-form');
 form?.addEventListener('submit', (event) => {
   event.preventDefault();
-  alert('Gracias por tu mensaje. Te respondere pronto.');
+  const formData = new FormData(form);
+  const nombre = formData.get('nombre')?.toString().trim() || '';
+  const email = formData.get('email')?.toString().trim() || '';
+  const mensaje = formData.get('mensaje')?.toString().trim() || '';
+
+  const text = [
+    'Hola, quiero informacion sobre un proyecto.',
+    `Nombre: ${nombre}`,
+    `Email: ${email}`,
+    `Mensaje: ${mensaje}`,
+  ].join('\n');
+
+  const whatsappUrl = `https://wa.me/595982912585?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+  alert('Te redirigimos a WhatsApp para enviar tu mensaje.');
   form.reset();
 });
