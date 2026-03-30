@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <canvas class="matrix-bg" aria-hidden="true"></canvas>
     <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <header class="topbar">
       <a href="#inicio" class="logo">LUOXSYSTEMS</a>
@@ -49,11 +51,27 @@
           <a class="btn btn-whatsapp" href="https://wa.me/595982912585" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
 
+        <div class="hero-metrics">
+          <article class="metric">
+            <p class="metric-value" data-counter="25">0</p>
+            <p class="metric-label">Proyectos IT / Web</p>
+          </article>
+          <article class="metric">
+            <p class="metric-value" data-counter="98">0</p>
+            <p class="metric-label">Disponibilidad operativa</p>
+          </article>
+          <article class="metric">
+            <p class="metric-value" data-counter="24">0</p>
+            <p class="metric-label">Respuesta en horas</p>
+          </article>
+        </div>
+
         <p class="contact-inline">
           Contacto directo: <a href="tel:+595982912585">+595982912585</a>
         </p>
 
         <div class="terminal-card" aria-label="Estado del sistema">
+          <p class="terminal-head">luoxsystems@secure-node:~</p>
           <p><span>$</span> whoami</p>
           <p><strong>francisco_robles</strong></p>
           <p><span>$</span> company --name</p>

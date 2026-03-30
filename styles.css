@@ -26,10 +26,23 @@ body {
     radial-gradient(circle at 10% -10%, rgba(51, 120, 77, 0.25), transparent 35%),
     radial-gradient(circle at 90% 0%, rgba(30, 90, 52, 0.22), transparent 40%),
     linear-gradient(180deg, #030a05 0%, #06130c 45%, #08170f 100%);
+  background-size: 120% 120%;
+  animation: bg-drift 14s ease-in-out infinite alternate;
   color: var(--text);
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.matrix-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .noise {
@@ -39,6 +52,20 @@ body {
   opacity: 0.06;
   background-image: radial-gradient(#6dff9f 0.35px, transparent 0.35px);
   background-size: 3px 3px;
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(76, 255, 135, 0.2), rgba(76, 255, 135, 0));
+  filter: blur(6px);
+  transform: translate(-50%, -50%);
+  z-index: -2;
 }
 
 .topbar {
@@ -52,6 +79,7 @@ body {
   border-bottom: 1px solid rgba(76, 255, 135, 0.18);
   background: rgba(2, 12, 8, 0.8);
   backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -60,6 +88,7 @@ body {
   letter-spacing: 0.08em;
   font-weight: 700;
   font-family: "JetBrains Mono", monospace;
+  text-shadow: 0 0 10px rgba(76, 255, 135, 0.35);
 }
 
 .nav {
@@ -110,6 +139,7 @@ body {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   background: rgba(18, 168, 79, 0.12);
+  animation: chip-flicker 3.6s linear infinite;
 }
 
 h1,
@@ -146,6 +176,42 @@ h2 {
   gap: 0.8rem;
 }
 
+.hero-metrics {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  max-width: 760px;
+}
+
+.metric {
+  border: 1px solid rgba(126, 248, 164, 0.28);
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: linear-gradient(160deg, rgba(11, 34, 21, 0.92), rgba(6, 18, 12, 0.95));
+  box-shadow: inset 0 0 0 1px rgba(76, 255, 135, 0.05);
+}
+
+.metric-value {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.metric-value::after {
+  content: "+";
+  font-size: 1rem;
+  margin-left: 0.2rem;
+  opacity: 0.8;
+}
+
+.metric-label {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.15rem;
@@ -154,6 +220,13 @@ h2 {
   border: 1px solid var(--line);
   color: var(--text);
   font-weight: 600;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(49, 201, 108, 0.24);
+  border-color: rgba(126, 248, 164, 0.8);
 }
 
 .btn-primary {
@@ -198,6 +271,18 @@ h2 {
   padding: 1rem;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(76, 255, 135, 0.03), rgba(76, 255, 135, 0));
+  transform: translateX(-100%);
+  animation: terminal-scan 4s ease-in-out infinite;
 }
 
 .terminal-card p {
@@ -206,6 +291,13 @@ h2 {
 
 .terminal-card span {
   color: var(--accent);
+}
+
+.terminal-head {
+  margin-bottom: 0.6rem;
+  color: #9be6b8;
+  font-size: 0.82rem;
+  opacity: 0.9;
 }
 
 .ok {
@@ -225,13 +317,14 @@ h2 {
   border: 1px solid rgba(90, 179, 121, 0.3);
   border-radius: 14px;
   padding: 1rem;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover,
 .project:hover {
   transform: translateY(-4px);
   border-color: rgba(126, 248, 164, 0.7);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
 .tag {
@@ -264,6 +357,12 @@ h2 {
   padding: 0.45rem 0.8rem;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.84rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skills p:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126, 248, 164, 0.8);
 }
 
 .contact-form {
@@ -305,13 +404,90 @@ footer {
 
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(26px) scale(0.98);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+.reveal.visible .card,
+.reveal.visible .project,
+.reveal.visible .skills p {
+  animation: rise-in 0.45s ease both;
+}
+
+.reveal.visible .card:nth-child(2),
+.reveal.visible .project:nth-child(2),
+.reveal.visible .skills p:nth-child(2n) {
+  animation-delay: 0.08s;
+}
+
+.reveal.visible .card:nth-child(3),
+.reveal.visible .project:nth-child(3),
+.reveal.visible .skills p:nth-child(3n) {
+  animation-delay: 0.14s;
+}
+
+.reveal.visible .card:nth-child(4),
+.reveal.visible .skills p:nth-child(4n) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bg-drift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes chip-flicker {
+  0%,
+  47%,
+  49%,
+  100% {
+    opacity: 1;
+  }
+  48%,
+  76% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes terminal-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 840px) {
@@ -338,5 +514,9 @@ footer {
 
   .section {
     padding: 3rem 0;
+  }
+
+  .cursor-glow {
+    display: none;
   }
 }
