@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luox07.github.io/LUOXSYSTEMS/sitemap.xml

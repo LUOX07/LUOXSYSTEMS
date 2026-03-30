@@ -705,8 +705,10 @@ h2 {
   font-size: clamp(1.35rem, 2vw, 1.75rem);
   margin: 0;
   line-height: 1.15;
-  max-width: 10ch;
-  overflow-wrap: anywhere;
+  max-width: 14ch;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .skill-icon {
@@ -1087,6 +1089,10 @@ footer p {
 }
 
 @media (max-width: 840px) {
+  .topbar {
+    padding: 0.95rem 1rem;
+  }
+
   .menu-btn {
     display: block;
   }
@@ -1109,11 +1115,21 @@ footer p {
   }
 
   .section {
-    padding: 3rem 0;
+    padding: 2.8rem 0;
   }
 
   .logo {
     font-size: 1rem;
+  }
+
+  .section > p,
+  .lead,
+  .contact-left p,
+  .card p,
+  .project p,
+  .about-copy p,
+  .profile-card li {
+    font-size: 0.98rem;
   }
 
   .about-split {
@@ -1126,10 +1142,11 @@ footer p {
 
   .hero-layout {
     grid-template-columns: 1fr;
+    gap: 1.4rem;
   }
 
   .hero-visual {
-    min-height: 500px;
+    min-height: 460px;
     order: -1;
   }
 
@@ -1143,6 +1160,7 @@ footer p {
 
   .hero-core {
     width: min(100%, 400px);
+    transform: translate(calc(-50% + 18px), -50%);
   }
 
   .hero-logo-frame {
@@ -1164,15 +1182,148 @@ footer p {
   }
 
   .hero-badge {
-    padding: 0.68rem 0.82rem;
-    font-size: 0.88rem;
+    gap: 0.5rem;
+    padding: 0.62rem 0.75rem;
+    font-size: 0.81rem;
+    max-width: 170px;
   }
 
   .point-value {
     font-size: 1.05rem;
   }
 
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-point {
+    align-items: flex-start;
+  }
+
   .skill-title-wrap h3 {
-    font-size: 1.45rem;
+    font-size: 1.28rem;
+    max-width: none;
+  }
+
+  .skill-tags span {
+    font-size: 0.81rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h2 {
+    margin-bottom: 0.9rem;
+    font-size: clamp(1.6rem, 8vw, 2.15rem);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-metrics,
+  .cards,
+  .project-grid,
+  .trust-grid,
+  .process-grid,
+  .skills-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero-orbit-stage {
+    width: min(100%, 360px);
+    --orbit-r1: 146px;
+    --orbit-r2: 142px;
+    --orbit-r3: 138px;
+    --orbit-r4: 134px;
+  }
+
+  .hero-core {
+    width: min(100%, 300px);
+    border-radius: 28px;
+    transform: translate(calc(-50% + 8px), -50%);
+  }
+
+  .hero-core::before {
+    inset: 10px;
+    border-radius: 20px;
+  }
+
+  .hero-core::after {
+    inset: -18px;
+    border-radius: 34px;
+  }
+
+  .hero-logo-frame {
+    width: min(88%, 250px);
+    border-radius: 18px;
+  }
+
+  .hero-logo-frame::before {
+    inset: 8px;
+    border-radius: 12px;
+  }
+
+  .hero-badge {
+    max-width: 142px;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    border-radius: 12px;
+  }
+
+  .hero-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .orbit-ring-outer {
+    width: min(95vw, 360px);
+    height: min(95vw, 360px);
+  }
+
+  .orbit-ring-inner {
+    width: min(76vw, 285px);
+    height: min(76vw, 285px);
+  }
+
+  .metric {
+    padding: 0.9rem;
+  }
+
+  .profile-card,
+  .about-copy,
+  .skill-card,
+  .panel-contact,
+  .card,
+  .project,
+  .trust-card,
+  .process-step {
+    padding: 1.05rem;
+  }
+
+  .skill-title-wrap {
+    align-items: flex-start;
+  }
+
+  .skill-title-wrap h3 {
+    font-size: 1.18rem;
+    line-height: 1.1;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+  }
+
+  footer {
+    padding: 1.9rem 1rem 2.4rem;
   }
 }
